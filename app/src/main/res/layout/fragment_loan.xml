@@ -10,7 +10,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="50dp"
+            android:padding="16dp"
             android:background="@color/cardview_light_background">
 
         <TextView
@@ -27,9 +27,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="24dp"
-                android:text="@{loan.status}"
-                android:textSize="18dp"
+                android:padding="8dp"
+                android:text="@{@string/status(loan.status)}"
+                android:textSize="18sp"
                 tools:text="Funded"/>
 
         <TextView
@@ -37,10 +37,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:padding="15dp"
                 android:text="@{@string/loan_amount(Integer.toString(loan.loanAmount))}"
                 tools:text="Loan Amount: $100"/>
+
+        <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:text="@{loan.descriptionText}"
+                android:textSize="12sp"
+                tools:text="Description Text"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/lender_btn"
@@ -48,9 +58,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:text="See Lenders"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:background="@color/colorPrimary"
                 android:onClickListener="@{() -> callback.onSelected(loan)}"/>
 
