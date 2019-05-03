@@ -55,7 +55,7 @@ class LoanDetailFragment : Fragment() {
         if(id != null) {
             observeData(model.getLoan(id))
         }
-        // todo handle else case
+        // Handle else case
     }
 
     private fun observeData(liveData : LiveData<Loan>) {

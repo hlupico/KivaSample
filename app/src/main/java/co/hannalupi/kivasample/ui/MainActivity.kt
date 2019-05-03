@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setupToolbar()
+        setupActionBar()
 
         if(savedInstanceState == null) {
             val fragment = LoanListFragment()
@@ -19,11 +19,6 @@ class MainActivity : AppCompatActivity() {
                 .addToBackStack(fragment.tag)
                 .commit()
         }
-    }
-
-    private fun setupToolbar() {
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setTitle("Kiva")
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -36,6 +31,11 @@ class MainActivity : AppCompatActivity() {
                 return super.onOptionsItemSelected(item)
             }
         }
+    }
+
+    private fun setupActionBar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle("Kiva")
     }
 
     private fun backPressed() {

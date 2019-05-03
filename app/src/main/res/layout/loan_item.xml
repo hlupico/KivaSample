@@ -30,7 +30,13 @@
                 android:id="@+id/amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{Integer.toString(loan.loanAmount)}"/>
+                android:text="@{@string/loan_amount(Integer.toString(loan.loanAmount))}"/>
+
+        <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/status(loan.status)}"/>
     </LinearLayout>
 
    </androidx.cardview.widget.CardView>

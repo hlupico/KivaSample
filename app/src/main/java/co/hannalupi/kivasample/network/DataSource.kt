@@ -1,6 +1,5 @@
 package co.hannalupi.kivasample.network
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import co.hannalupi.kivasample.model.Lender
@@ -13,20 +12,17 @@ import retrofit2.Response
 
 class DataSource(val retrofit : RetrofitService) {
 
-    val tag = "DataSource"
-
     fun fetchLoans(status : String) : LiveData<List<Loan>> {
         val call : Call<LoanList> = retrofit.client.getLoans(status)
         var loans : MutableLiveData<List<Loan>> = MutableLiveData()
 
         call.enqueue(object : Callback<LoanList> {
             override fun onFailure(call: Call<LoanList>, t: Throwable) {
-                Log.d(tag, call.toString())
+                // TODO handle error case
             }
 
             override fun onResponse(call: Call<LoanList>, response: Response<LoanList>) {
                 if(response.isSuccessful) {
-                    Log.d(tag, "Success")
                     loans.value = response.body()?.loans
                 }
                 else {
@@ -49,7 +45,6 @@ class DataSource(val retrofit : RetrofitService) {
 
             override fun onResponse(call: Call<LoanList>, response: Response<LoanList>) {
                 if(response.isSuccessful) {
-                    Log.d(tag, call.toString())
                     loan.value = response.body()?.loans?.get(0)
                 }
                 else {
@@ -66,12 +61,11 @@ class DataSource(val retrofit : RetrofitService) {
 
         call.enqueue(object : Callback<LenderList> {
             override fun onFailure(call: Call<LenderList>, t: Throwable) {
-                Log.d(tag, call.toString())
+                // TODO handle error case
             }
 
             override fun onResponse(call: Call<LenderList>, response: Response<LenderList>) {
                 if(response.isSuccessful) {
-                    Log.d(tag, "Success")
                     lenders.value = response.body()?.lenders
                 }
                 else {
