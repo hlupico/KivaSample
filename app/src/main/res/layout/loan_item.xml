@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="loan" type="co.hannalupi.kivasample.model.Loan"/>
+        <variable name="callback" type="co.hannalupi.kivasample.ui.SelectedCallback"/>
+    </data>
+
+   <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:paddingStart="16dp"
+           android:paddingEnd="16dp"
+           android:background="?selectableItemBackground"
+           android:onClick="@{() -> callback.onSelected(loan)}"
+           app:cardUseCompatPadding="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:padding="16dp">
+
+        <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{loan.name}"/>
+
+        <TextView
+                android:id="@+id/amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Integer.toString(loan.loanAmount)}"/>
+    </LinearLayout>
+
+   </androidx.cardview.widget.CardView>
+</layout>

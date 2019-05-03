@@ -14,9 +14,8 @@ interface KivaClient {
 
     @GET("loans/{id}.json")
     fun getLoanById(@Path("id") id : Int) : Call<LoanList>
-    // TODO: Changed this to LoanList? Maybe rename pagedata
 
-    @GET("/loans/{id}/lenders")
+    @GET("loans/{id}/lenders.json")
     fun getLendersByLoanId(@Path("id") id : Int) : Call<LenderList>
-    // TODO: Changed this to LenderList? Maybe rename pagedata
+
 }
